@@ -93,7 +93,61 @@ export function parseCodex(cutoffMs) {
   return { agent: "Codex", byModel, days };
 }
 
+
+// Hermes (Nous Research): usage lives in a SQLite DB, one row per session+model
+// in `session_model_usage`. We read it with the system `sqlite3` CLI (present on
+// macOS and most Linux) so sidegrade keeps zero npm dependencies; if sqlite3 is
+// missing or the DB is absent we simply skip Hermes.
+import { spawnSync } from "node:child_process";
+export function parseHermes(cutoffMs) {
+  const db = path.join(os.homedir(), ".hermes", "state.db");
+  if (!fs.existsSync(db)) return { agent: "Hermes", byModel: new Map(), days: new Set() };
+  const cutoffSec = cutoffMs / 1000;
+  const q = "SELECT model, input_tokens, output_tokens, cache_read_tokens, cache_write_tokens, last_seen "
+    + `FROM session_model_usage WHERE last_seen >= ${cutoffSec}`;
+  let rows = [];
+  try {
+    const r = spawnSync("sqlite3", ["-json", db, q], { encoding: "utf8", timeout: 10000 });
+    if (r.status === 0 && r.stdout.trim()) rows = JSON.parse(r.stdout);
+  } catch { /* no sqlite3, or locked DB — skip Hermes */ }
+  const byModel = new Map(); const days = new Set();
+  for (const row of rows) {
+    bump(byModel, row.model, {
+      input: row.input_tokens, cacheCreate: row.cache_write_tokens,
+      cacheRead: row.cache_read_tokens, output: row.output_tokens,
+    });
+    if (row.last_seen) days.add(new Date(row.last_seen * 1000).toISOString().slice(0, 10));
+  }
+  return { agent: "Hermes", byModel, days };
+}
+
+// OpenCode (sst/opencode): assistant message parts are stored as JSON with a
+// `tokens` object ({ input, output, cache: { read, write } }) and a `modelID`.
+// Best-effort and guarded: unverified against a live install, so it no-ops
+// cleanly when the storage tree or shape is absent. Verification/PRs welcome.
+export function parseOpenCode(cutoffMs) {
+  const base = process.env.XDG_DATA_HOME
+    ? path.join(process.env.XDG_DATA_HOME, "opencode")
+    : path.join(os.homedir(), ".local", "share", "opencode");
+  const byModel = new Map(); const days = new Set();
+  for (const file of walk(base, (n) => n.endsWith(".json"))) {
+    readLines(file, (o) => {
+      const t = o.tokens;
+      if (!t || (t.input === undefined && t.output === undefined)) return;
+      const when = o.time && (o.time.completed || o.time.created);
+      if (when && when < cutoffMs) return;
+      const cache = t.cache || {};
+      bump(byModel, o.modelID || o.model, {
+        input: t.input || 0, cacheCreate: cache.write || 0,
+        cacheRead: cache.read || 0, output: t.output || 0,
+      });
+      if (when) days.add(new Date(when).toISOString().slice(0, 10));
+    });
+  }
+  return { agent: "OpenCode", byModel, days };
+}
+
 export function collect(days = 30) {
   const cutoffMs = Date.now() - days * 86400_000;
-  return [parseClaudeCode(cutoffMs), parseCodex(cutoffMs)].filter((s) => s.byModel.size);
+  return [parseClaudeCode(cutoffMs), parseCodex(cutoffMs), parseHermes(cutoffMs), parseOpenCode(cutoffMs)].filter((s) => s.byModel.size);
 }

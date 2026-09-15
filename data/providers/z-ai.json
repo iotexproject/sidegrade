@@ -1,0 +1,17 @@
+{
+  "provider": "Z.ai",
+  "url": "https://docs.z.ai/guides/overview/pricing",
+  "pricing_url": "https://docs.z.ai/guides/overview/pricing",
+  "offers": [
+    {
+      "model": "glm-5.3",
+      "in": 1.4,
+      "out": 4.4
+    },
+    {
+      "model": "glm-5.3-flash",
+      "in": 0.075,
+      "out": 0.25
+    }
+  ]
+}

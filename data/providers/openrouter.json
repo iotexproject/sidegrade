@@ -1,0 +1,12 @@
+{
+  "provider": "OpenRouter",
+  "url": "https://openrouter.ai/moonshotai/kimi-k3",
+  "pricing_url": "https://openrouter.ai/moonshotai/kimi-k3",
+  "offers": [
+    {
+      "model": "kimi-k3",
+      "in": 3.0,
+      "out": 15.0
+    }
+  ]
+}

@@ -43,8 +43,13 @@ export function normalizeModel(raw) {
 }
 
 // Cost (USD) of a token mix under one price offer.
+// Cache-hit input is far cheaper than fresh input. When a provider omits an
+// explicit cacheRead price we assume a conservative 10% of the input rate — a
+// common floor (Anthropic ~0.1x, OpenAI ~0.1x; DeepSeek is even cheaper). This
+// matters a lot because coding agents are cache-heavy.
+const CACHE_DISCOUNT = 0.1;
 export function offerCost(mix, offer) {
-  const cacheRate = offer.cacheRead ?? offer.in;
+  const cacheRate = offer.cacheRead ?? offer.in * CACHE_DISCOUNT;
   return (
     mix.input * offer.in +
     mix.cacheCreate * offer.in +

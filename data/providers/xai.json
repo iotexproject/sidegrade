@@ -1,0 +1,12 @@
+{
+  "provider": "xAI",
+  "url": "https://docs.x.ai/docs/models",
+  "pricing_url": "https://docs.x.ai/docs/models",
+  "offers": [
+    {
+      "model": "grok-4.5",
+      "in": 2.0,
+      "out": 6.0
+    }
+  ]
+}

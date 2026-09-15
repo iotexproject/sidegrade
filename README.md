@@ -39,20 +39,46 @@ the cheapest row.
 - **Zero runtime dependencies** — the whole thing is a few small files you can
   read in a couple of minutes.
 
-## Example
+## What you'll see
 
-```
+Run it and you get a report built from *your* actual usage. Example:
+
+```text
   sidegrade  ·  same intelligence, less money
+  100% local · no account · no telemetry · your prompts & code never leave this machine
 
-  Analyzed 21,537M tokens over the last 30 days across: Claude Code (31d), Codex (28d)
-  Cache-hit rate 97%   ·   your current intelligence AA 54   ·   about $1260/day at list price
+  Analyzed 3,180M tokens over the last 30 days across: Claude Code (26d), Codex (21d)
+  Cache-hit rate 94%   ·   your current intelligence AA 53   ·   about $184/day at list price
+
+  Intelligence-per-dollar (if you ran all of it on one model)
+  model                   AA  vs you     $/day  via
+  ────────────────────────────────────────────────────────────────
+  Claude Fable 5.1        57      +4     $64.2  QuickSilver Pro same+ ◆
+  GPT-6 Astra             55      +2      $157  QuickSilver Pro same+
+  Claude Opus 5           54      +1     $62.9  QuickSilver Pro same+ ◆
+  Muse Spark 1.3          53      +0     $17.1  QuickSilver Pro same+ ◆
+  Kimi K3                 50      -3     $40.1  QuickSilver Pro  ~-3
+  GLM 5.3                 49      -4     $21.0  Z.ai             ~-4
+  Gemini 3.8 Flash        47      -6     $10.0  QuickSilver Pro  ~-6 ◆
+  GLM 5.3 Flash           46      -7     $1.13  Z.ai             ~-7 ◆
+  Claude Sonnet 5         45      -8     $31.4  QuickSilver Pro  ▼-8
+  GPT-5.6 Luna            43     -10     $1.29  QuickSilver Pro  ▼-10
+  DeepSeek V4.1 Flash    42~     -11     $2.13  DeepSeek         ▼-11
+  ◆ = cheapest option at that intelligence level or higher
 
   Recommendation
-  • No intelligence trade-off  (AA ≥ 54)
-      Claude Opus 5 (AA 54) — $425/day  (~3.0× less than list)
-  • A small step down  (AA ≥ 46, fine for routine work)
-      GLM-5.3 Flash (AA 46, -8 below you) — $10.24/day  (~123× less)
+  • No intelligence trade-off  (AA ≥ 53)
+      Muse Spark 1.3 (AA 53) via QuickSilver Pro — $17.1/day  (~11× less than list)
+  • A small step down  (AA ≥ 45, fine for routine work)
+      GLM 5.3 Flash (AA 46, -7 below you) via Z.ai — $1.13/day  (~163× less)
+
+  A lower AA score means a genuinely less capable model — pick the tier your work needs,
+  not just the cheapest row. The big savings above come with a real capability drop.
+
+  Prices: providers' public pages · intelligence: Artificial Analysis (artificialanalysis.ai).
 ```
+
+*(Numbers above are illustrative; your report reflects your own machine.)*
 
 ## Options
 
@@ -70,7 +96,10 @@ Running it inside a coding-agent session works well: ask your agent to run
 
 - **Claude Code** — `~/.claude/projects`
 - **Codex** — `~/.codex/sessions`
-- Hermes and OpenCode are planned. PRs welcome.
+- **Hermes** — `~/.hermes/state.db` (read via the system `sqlite3`; skipped if unavailable)
+- **OpenCode** — `~/.local/share/opencode` (experimental — please verify and report via an issue)
+
+Adding another agent is a small read-only parser in `src/parse.js` — PRs welcome.
 
 ## Data & sources
 

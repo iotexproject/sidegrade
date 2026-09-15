@@ -1,7 +1,7 @@
 {
   "_meta": {
     "intelligence_source": "Artificial Analysis Intelligence Index (https://artificialanalysis.ai), rounded to the nearest integer.",
-    "note": "Canonical model registry. Prices live in data/providers/*.json — one file per provider. To add or fix a price, edit your provider file and open a PR. To add a new model, add it here too.",
+    "note": "Canonical model registry. Prices live in data/providers/*.json \u2014 one file per provider. Add or fix a price by editing your provider file and opening a PR.",
     "updated": "2026-09-15"
   },
   "models": [
@@ -21,8 +21,23 @@
       "aa": 54
     },
     {
+      "id": "muse-spark-1.3",
+      "label": "Muse Spark 1.3",
+      "aa": 53
+    },
+    {
+      "id": "claude-fable-5",
+      "label": "Claude Fable 5",
+      "aa": 53
+    },
+    {
       "id": "gpt-5.6-sol",
       "label": "GPT-5.6 Sol",
+      "aa": 51
+    },
+    {
+      "id": "grok-4.6",
+      "label": "Grok 4.6",
       "aa": 51
     },
     {
@@ -32,12 +47,22 @@
     },
     {
       "id": "glm-5.3",
-      "label": "GLM-5.3",
+      "label": "GLM 5.3",
       "aa": 49
     },
     {
       "id": "qwen3.8-max",
       "label": "Qwen3.8 Max",
+      "aa": 47
+    },
+    {
+      "id": "muse-spark-1.2",
+      "label": "Muse Spark 1.2",
+      "aa": 47
+    },
+    {
+      "id": "gpt-5.6-terra",
+      "label": "GPT-5.6 Terra",
       "aa": 47
     },
     {
@@ -47,8 +72,13 @@
     },
     {
       "id": "glm-5.3-flash",
-      "label": "GLM-5.3 Flash",
+      "label": "GLM 5.3 Flash",
       "aa": 46
+    },
+    {
+      "id": "grok-4.5",
+      "label": "Grok 4.5",
+      "aa": 45
     },
     {
       "id": "claude-sonnet-5",
@@ -66,15 +96,15 @@
       "aa": 43
     },
     {
-      "id": "deepseek-v4-pro",
-      "label": "DeepSeek V4 Pro",
-      "aa": 42
-    },
-    {
       "id": "deepseek-v4.1-flash",
       "label": "DeepSeek V4.1 Flash",
       "aa": 42,
       "aaEstimated": true
+    },
+    {
+      "id": "deepseek-v4-pro",
+      "label": "DeepSeek V4 Pro",
+      "aa": 42
     },
     {
       "id": "deepseek-v4-flash",
@@ -85,6 +115,41 @@
       "id": "qwen3.8-27b",
       "label": "Qwen3.8 27B",
       "aa": 41
+    },
+    {
+      "id": "gemini-3.6-flash",
+      "label": "Gemini 3.6 Flash",
+      "aa": 40
+    },
+    {
+      "id": "gemini-3.1-pro-preview",
+      "label": "Gemini 3.1 Pro Preview",
+      "aa": 37
+    },
+    {
+      "id": "minimax-m3",
+      "label": "MiniMax M3",
+      "aa": 36
+    },
+    {
+      "id": "mimo-v2.5",
+      "label": "MiMo-V2.5",
+      "aa": 33
+    },
+    {
+      "id": "gemini-3.5-flash-lite",
+      "label": "Gemini 3.5 Flash-Lite",
+      "aa": 28
+    },
+    {
+      "id": "muse-glimmer-30b",
+      "label": "Muse Glimmer 30B",
+      "aa": 24
+    },
+    {
+      "id": "gpt-oss-120b",
+      "label": "GPT-OSS 120B",
+      "aa": 16
     }
   ],
   "aliases": {
@@ -92,7 +157,6 @@
     "opus-4-8": "claude-opus-5",
     "claude-opus-4-8": "claude-opus-5",
     "sonnet": "claude-sonnet-5",
-    "fable-5-1": "claude-fable-5-1",
     "fable": "claude-fable-5-1",
     "astra": "gpt-6-astra",
     "gpt-6": "gpt-6-astra",

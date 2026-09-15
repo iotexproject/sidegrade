@@ -1,13 +1,12 @@
 {
   "provider": "Alibaba",
-  "url": "https://www.alibabacloud.com",
-  "pricing_url": "https://www.alibabacloud.com/product/modelstudio",
+  "url": "https://openrouter.ai/qwen/qwen3.8-27b",
+  "pricing_url": "https://openrouter.ai/qwen/qwen3.8-27b",
   "offers": [
     {
-      "model": "qwen3.8-max",
-      "in": 2,
-      "out": 6,
-      "cacheRead": 0.25
+      "model": "qwen3.8-27b",
+      "in": 0.425,
+      "out": 2.55
     }
   ]
 }
