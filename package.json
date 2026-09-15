@@ -1,6 +1,6 @@
 {
   "name": "sidegrade",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Find a model with the same intelligence for less. Reads your local coding-agent usage and shows the intelligence-per-dollar frontier.",
   "type": "module",
   "bin": {

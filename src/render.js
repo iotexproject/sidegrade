@@ -12,8 +12,13 @@ export function render(r) {
   L.push("  " + dim("100% local · no account · no telemetry · your prompts & code never leave this machine"));
   L.push("");
   const agents = r.agents.map((a) => `${a.agent} (${a.days}d)`).join(", ");
-  L.push(`  Analyzed ${bold((r.totalTokens / 1e6).toFixed(0) + "M")} tokens over the last ${r.days} days across: ${agents}`);
-  L.push(`  Cache-hit rate ${bold(r.cacheHitPct.toFixed(0) + "%")}   ·   your current intelligence ${bold("AA " + r.currentAA.toFixed(0))}   ·   about ${bold(money(r.currentPerDay) + "/day")} at list price`);
+  // Lead with the user's realization: what intelligence they're running, and
+  // what it costs — details second.
+  L.push("  " + bold(`You're using AI at intelligence AA ${r.currentAA.toFixed(0)}`) +
+    ", costing about " + bold(money(r.currentPerDay) + "/day") + " " + dim("at list price."));
+  L.push("");
+  L.push("  " + dim(`Based on ${Math.round(r.totalTokens / 1e6).toLocaleString("en-US")}M tokens over the last ${r.days} days · ` +
+    `${r.cacheHitPct.toFixed(0)}% cache-hit · ${agents}`));
   L.push("");
 
   // Frontier table
