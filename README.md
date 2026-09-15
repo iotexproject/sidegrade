@@ -1,15 +1,17 @@
 # sidegrade
 
 **Same intelligence, less money.** `sidegrade` reads your local coding-agent
-usage and tells you which model gives you the *same intelligence* for a lower
-price — and which cheaper tier is worth a small step down.
+usage — **Claude Code, Codex, Hermes, and OpenCode** — and tells you which model
+gives you the *same intelligence* for a lower price, and which cheaper tier is
+worth a small step down.
 
 ```bash
 npx sidegrade
 ```
 
-No install, no account, no config. It reads your existing session logs on this
-machine and prints a report.
+No install, no account, no config. It reads your existing Claude Code, Codex,
+Hermes, and OpenCode session logs on this machine and prints a report — whichever
+of the four you use.
 
 ## What you'll see
 
