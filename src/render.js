@@ -3,6 +3,9 @@ const useColor = process.stdout.isTTY && !process.env.NO_COLOR;
 const c = (code, s) => (useColor ? `\x1b[${code}m${s}\x1b[0m` : s);
 const bold = (s) => c("1", s), dim = (s) => c("2", s), green = (s) => c("32", s), cyan = (s) => c("36", s), yellow = (s) => c("33", s);
 const money = (n) => "$" + n.toFixed(n < 100 ? 2 : 0);
+const tokens = (n) => n >= 1e9 ? (n / 1e9).toFixed(1) + "B"
+  : n >= 1e6 ? Math.round(n / 1e6).toLocaleString("en-US") + "M"
+  : n.toLocaleString("en-US");
 const pad = (s, n) => String(s).padEnd(n), padL = (s, n) => String(s).padStart(n);
 
 export function render(r) {
@@ -17,7 +20,7 @@ export function render(r) {
   L.push("  " + bold(`You're using AI at intelligence AA ${r.currentAA.toFixed(0)}`) +
     ", costing about " + bold(money(r.currentPerDay) + "/day") + " " + dim("at list price."));
   L.push("");
-  L.push("  " + dim(`Based on ${Math.round(r.totalTokens / 1e6).toLocaleString("en-US")}M tokens over the last ${r.days} days · ` +
+  L.push("  " + dim(`Based on ${tokens(r.totalTokens)} tokens over the last ${r.days} days · ` +
     `${r.cacheHitPct.toFixed(0)}% cache-hit · ${agents}`));
   L.push("");
 
