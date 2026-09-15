@@ -13,6 +13,21 @@ No install, no account, no config. It reads your existing Claude Code, Codex,
 Hermes, and OpenCode session logs on this machine and prints a report — whichever
 of the four you use.
 
+## Or just ask your agent
+
+Already inside Claude Code, Codex, Cursor, or any coding agent? Paste this — it
+runs sidegrade and tells you what to do, no terminal needed:
+
+```text
+Run `npx -y sidegrade --json` and interpret the output for me. sidegrade scores
+AI models by intelligence (Artificial Analysis) and price, and re-prices my own
+local coding-agent usage on each. Tell me, in a few sentences: (1) the
+intelligence level (AA) I'm running now and roughly what it costs per day, (2)
+the cheapest model at that same intelligence, and (3) the cheapest one a small
+step down that's still fine for routine work — with $/day and the savings for
+each. Be honest about the capability trade-off.
+```
+
 ## What you'll see
 
 Run it and you get a report built from *your* actual usage. Example:
