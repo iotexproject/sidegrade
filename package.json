@@ -19,7 +19,8 @@
   "scripts": {
     "start": "node bin/sidegrade.js",
     "validate": "node scripts/validate.js",
-    "test": "node scripts/validate.js && node bin/sidegrade.js --help"
+    "test": "node scripts/validate.js && node bin/sidegrade.js --help",
+    "prepublishOnly": "npm test"
   },
   "keywords": [
     "llm",
