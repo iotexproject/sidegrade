@@ -11,34 +11,6 @@ npx sidegrade
 No install, no account, no config. It reads your existing session logs on this
 machine and prints a report.
 
-## Why
-
-Coding agents (Claude Code, Codex, …) are cache-heavy: the same context is
-re-sent every turn, so most of your tokens are cache reads. That means two
-things most cost dashboards miss:
-
-1. Your bill is dominated by a small slice of **output** and **fresh input**,
-   not the huge cache-read count — so raw token totals mislead.
-2. A model that is nearly as capable but priced right can cost a fraction of
-   what you pay, *for your specific usage shape*.
-
-`sidegrade` scores every candidate model on the **Artificial Analysis
-Intelligence Index** and re-prices *your* actual token mix on each, so you can
-pick the cheapest model **at the intelligence level your work needs** — not just
-the cheapest row.
-
-## Privacy — this is the whole point
-
-- **100% local.** It only reads token *counts* from your agents' own log files.
-- **No network calls at runtime.** Prices and intelligence scores are bundled
-  in the package. The only network access is `npm`/`npx` fetching sidegrade
-  itself.
-- **No telemetry, no account, no API key** to run.
-- **Read-only.** Your prompts, code, file paths, and completions never leave
-  your machine.
-- **Zero runtime dependencies** — the whole thing is a few small files you can
-  read in a couple of minutes.
-
 ## What you'll see
 
 Run it and you get a report built from *your* actual usage. Example:
@@ -79,6 +51,34 @@ Run it and you get a report built from *your* actual usage. Example:
 ```
 
 *(Numbers above are illustrative; your report reflects your own machine.)*
+
+## Why
+
+Coding agents (Claude Code, Codex, …) are cache-heavy: the same context is
+re-sent every turn, so most of your tokens are cache reads. That means two
+things most cost dashboards miss:
+
+1. Your bill is dominated by a small slice of **output** and **fresh input**,
+   not the huge cache-read count — so raw token totals mislead.
+2. A model that is nearly as capable but priced right can cost a fraction of
+   what you pay, *for your specific usage shape*.
+
+`sidegrade` scores every candidate model on the **Artificial Analysis
+Intelligence Index** and re-prices *your* actual token mix on each, so you can
+pick the cheapest model **at the intelligence level your work needs** — not just
+the cheapest row.
+
+## Privacy — this is the whole point
+
+- **100% local.** It only reads token *counts* from your agents' own log files.
+- **No network calls at runtime.** Prices and intelligence scores are bundled
+  in the package. The only network access is `npm`/`npx` fetching sidegrade
+  itself.
+- **No telemetry, no account, no API key** to run.
+- **Read-only.** Your prompts, code, file paths, and completions never leave
+  your machine.
+- **Zero runtime dependencies** — the whole thing is a few small files you can
+  read in a couple of minutes.
 
 ## Options
 
