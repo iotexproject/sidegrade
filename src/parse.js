@@ -103,8 +103,7 @@ export function parseCodex(cutoffMs) {
 // macOS and most Linux) so sidegrade keeps zero npm dependencies; if sqlite3 is
 // missing or the DB is absent we simply skip Hermes.
 import { spawnSync } from "node:child_process";
-export function parseHermes(cutoffMs) {
-  const db = path.join(os.homedir(), ".hermes", "state.db");
+export function parseHermes(cutoffMs, db = path.join(os.homedir(), ".hermes", "state.db")) {
   if (!fs.existsSync(db)) return { agent: "Hermes", byModel: new Map(), days: new Set() };
   const cutoffSec = cutoffMs / 1000;
   const q = "SELECT model, input_tokens, output_tokens, cache_read_tokens, cache_write_tokens, last_seen "
