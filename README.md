@@ -97,7 +97,7 @@ Running it inside a coding-agent session works well: ask your agent to run
 - **Claude Code** — `~/.claude/projects`
 - **Codex** — `~/.codex/sessions`
 - **Hermes** — `~/.hermes/state.db` (read via the system `sqlite3`; skipped if unavailable)
-- **OpenCode** — `~/.local/share/opencode` (experimental — please verify and report via an issue)
+- **OpenCode** — `~/.local/share/opencode` (reads `storage/session/message`; matched to the v1.18.x message schema and covered by a fixture test)
 
 Adding another agent is a small read-only parser in `src/parse.js` — PRs welcome.
 

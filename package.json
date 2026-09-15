@@ -1,6 +1,6 @@
 {
   "name": "sidegrade",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Find a model with the same intelligence for less. Reads your local coding-agent usage and shows the intelligence-per-dollar frontier.",
   "type": "module",
   "bin": {
@@ -19,7 +19,7 @@
   "scripts": {
     "start": "node bin/sidegrade.js",
     "validate": "node scripts/validate.js",
-    "test": "node scripts/validate.js && node bin/sidegrade.js --help",
+    "test": "node scripts/validate.js && node scripts/test-parsers.js && node bin/sidegrade.js --help",
     "prepublishOnly": "npm test"
   },
   "keywords": [

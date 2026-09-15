@@ -28,6 +28,10 @@ function readLines(file, onObject) {
   }
 }
 
+function readJson(file) {
+  try { return JSON.parse(fs.readFileSync(file, "utf8")); } catch { return null; }
+}
+
 const inWindow = (ts, cutoffMs) => {
   if (!ts) return true; // undated rows are kept rather than silently dropped
   const t = Date.parse(ts);
@@ -130,19 +134,24 @@ export function parseOpenCode(cutoffMs) {
     ? path.join(process.env.XDG_DATA_HOME, "opencode")
     : path.join(os.homedir(), ".local", "share", "opencode");
   const byModel = new Map(); const days = new Set();
+  // OpenCode stores one assistant message per JSON file under
+  // storage/session/message/**. Token usage and the model live under
+  // metadata.assistant (v1.x); we also accept a flatter shape defensively.
   for (const file of walk(base, (n) => n.endsWith(".json"))) {
-    readLines(file, (o) => {
-      const t = o.tokens;
-      if (!t || (t.input === undefined && t.output === undefined)) return;
-      const when = o.time && (o.time.completed || o.time.created);
-      if (when && when < cutoffMs) return;
-      const cache = t.cache || {};
-      bump(byModel, o.modelID || o.model, {
-        input: t.input || 0, cacheCreate: cache.write || 0,
-        cacheRead: cache.read || 0, output: t.output || 0,
-      });
-      if (when) days.add(new Date(when).toISOString().slice(0, 10));
+    const o = readJson(file);
+    if (!o || typeof o !== "object") continue;
+    const a = (o.metadata && o.metadata.assistant) || (o.info && o.info.assistant) || o.assistant || o;
+    const t = a.tokens || o.tokens;
+    if (!t || (t.input === undefined && t.output === undefined)) continue;
+    const time = (o.metadata && o.metadata.time) || o.time || (o.info && o.info.time) || {};
+    const when = time.completed || time.created;
+    if (when && when < cutoffMs) continue;
+    const cache = t.cache || {};
+    bump(byModel, a.modelID || o.modelID, {
+      input: t.input || 0, cacheCreate: cache.write || 0,
+      cacheRead: cache.read || 0, output: t.output || 0,
     });
+    if (when) days.add(new Date(when).toISOString().slice(0, 10));
   }
   return { agent: "OpenCode", byModel, days };
 }
