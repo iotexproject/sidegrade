@@ -1,0 +1,12 @@
+{
+  "provider": "AkashML",
+  "url": "https://akashml.com",
+  "pricing_url": "https://akashml.com/models",
+  "offers": [
+    { "model": "gpt-oss-120b", "in": 0.03, "out": 0.17, "cacheRead": 0.03 },
+    { "model": "deepseek-v4-flash", "in": 0.14, "out": 0.28 },
+    { "model": "qwen3.8-27b", "in": 0.25, "out": 2.2, "cacheRead": 0.05 },
+    { "model": "glm-5.3", "in": 1.3, "out": 4.4, "cacheRead": 0.26 },
+    { "model": "kimi-k3", "in": 3.0, "out": 15.0 }
+  ]
+}
