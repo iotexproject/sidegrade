@@ -1,0 +1,58 @@
+{
+  "_meta": {
+    "intelligence_source": "Artificial Analysis Intelligence Index (https://artificialanalysis.ai), rounded to the nearest integer.",
+    "price_unit": "USD per 1M tokens",
+    "notes": "Prices are curated from providers' public pricing pages and are community-maintained. Corrections and additional providers welcome via pull request. `cacheRead` is the price for cache-hit input tokens; when a model omits it, cached input is billed at the input rate.",
+    "updated": "2026-09-15"
+  },
+  "models": [
+    { "id": "claude-fable-5-1", "label": "Claude Fable 5.1", "aa": 57, "offers": [
+      { "via": "Anthropic", "in": 10, "out": 50, "cacheRead": 1.0 },
+      { "via": "QuickSilver Pro", "in": 8, "out": 40, "cacheRead": 0.2 } ] },
+    { "id": "gpt-6-astra", "label": "GPT-6 Astra", "aa": 55, "offers": [
+      { "via": "OpenAI", "in": 10, "out": 50, "cacheRead": 1.0 },
+      { "via": "QuickSilver Pro", "in": 10, "out": 50, "cacheRead": 1.0 } ] },
+    { "id": "claude-opus-5", "label": "Claude Opus 5", "aa": 54, "offers": [
+      { "via": "Anthropic", "in": 15, "out": 75, "cacheRead": 1.5 },
+      { "via": "QuickSilver Pro", "in": 4, "out": 20, "cacheRead": 0.4 } ] },
+    { "id": "gpt-5.6-sol", "label": "GPT-5.6 Sol", "aa": 51, "offers": [
+      { "via": "OpenAI", "in": 5, "out": 30, "cacheRead": 0.5 },
+      { "via": "QuickSilver Pro", "in": 4, "out": 24, "cacheRead": 0.4 } ] },
+    { "id": "kimi-k3", "label": "Kimi K3", "aa": 50, "offers": [
+      { "via": "Moonshot", "in": 3, "out": 15, "cacheRead": 0.3 },
+      { "via": "QuickSilver Pro", "in": 2.55, "out": 12.75, "cacheRead": 0.255 } ] },
+    { "id": "glm-5.3", "label": "GLM-5.3", "aa": 49, "offers": [
+      { "via": "QuickSilver Pro", "in": 1.12, "out": 3.52, "cacheRead": 0.208 } ] },
+    { "id": "qwen3.8-max", "label": "Qwen3.8 Max", "aa": 47, "offers": [
+      { "via": "Alibaba", "in": 2, "out": 6, "cacheRead": 0.25 },
+      { "via": "QuickSilver Pro", "in": 2, "out": 6, "cacheRead": 0.25 } ] },
+    { "id": "gemini-3.8-flash", "label": "Gemini 3.8 Flash", "aa": 47, "offers": [
+      { "via": "QuickSilver Pro", "in": 0.6375, "out": 3.1875, "cacheRead": 0.06375 } ] },
+    { "id": "glm-5.3-flash", "label": "GLM-5.3 Flash", "aa": 46, "offers": [
+      { "via": "QuickSilver Pro", "in": 0.06, "out": 0.2, "cacheRead": 0.012 } ] },
+    { "id": "claude-sonnet-5", "label": "Claude Sonnet 5", "aa": 45, "offers": [
+      { "via": "Anthropic", "in": 3, "out": 15, "cacheRead": 0.3 },
+      { "via": "QuickSilver Pro", "in": 2, "out": 10, "cacheRead": 0.2 } ] },
+    { "id": "gemini-3.7-flash", "label": "Gemini 3.7 Flash", "aa": 45, "offers": [
+      { "via": "QuickSilver Pro", "in": 0.6375, "out": 3.1875, "cacheRead": 0.06375 } ] },
+    { "id": "gpt-5.6-luna", "label": "GPT-5.6 Luna", "aa": 43, "offers": [
+      { "via": "OpenAI", "in": 0.1, "out": 0.6, "cacheRead": 0.01 },
+      { "via": "QuickSilver Pro", "in": 0.08, "out": 0.48, "cacheRead": 0.008 } ] },
+    { "id": "deepseek-v4-pro", "label": "DeepSeek V4 Pro", "aa": 42, "offers": [
+      { "via": "DeepSeek", "in": 0.7, "out": 2.1, "cacheRead": 0.1 },
+      { "via": "QuickSilver Pro", "in": 0.7, "out": 2.1, "cacheRead": 0.1 } ] },
+    { "id": "deepseek-v4.1-flash", "label": "DeepSeek V4.1 Flash", "aa": 42, "aaEstimated": true, "offers": [
+      { "via": "DeepSeek", "in": 0.3, "out": 1.2, "cacheRead": 0.006 },
+      { "via": "QuickSilver Pro", "in": 0.3, "out": 1.2, "cacheRead": 0.006 } ] },
+    { "id": "deepseek-v4-flash", "label": "DeepSeek V4 Flash", "aa": 41, "offers": [
+      { "via": "QuickSilver Pro", "in": 0.112, "out": 0.224, "cacheRead": 0.0144 } ] },
+    { "id": "qwen3.8-27b", "label": "Qwen3.8 27B", "aa": 41, "offers": [
+      { "via": "QuickSilver Pro", "in": 0.34, "out": 2.04, "cacheRead": 0.068 } ] }
+  ],
+  "aliases": {
+    "opus": "claude-opus-5", "opus-4-8": "claude-opus-5", "claude-opus-4-8": "claude-opus-5",
+    "sonnet": "claude-sonnet-5", "fable-5-1": "claude-fable-5-1", "fable": "claude-fable-5-1",
+    "astra": "gpt-6-astra", "gpt-6": "gpt-6-astra",
+    "glm-5.3-flash-exl3": "glm-5.3-flash", "ds-0731": "deepseek-v4-flash", "deepseek-flash": "deepseek-v4.1-flash"
+  }
+}

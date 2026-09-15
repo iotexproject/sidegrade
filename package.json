@@ -1,0 +1,14 @@
+{
+  "name": "sidegrade",
+  "version": "0.1.0",
+  "description": "Find a model with the same intelligence for less. Reads your local coding-agent usage and shows the intelligence-per-dollar frontier.",
+  "type": "module",
+  "bin": { "sidegrade": "bin/sidegrade.js" },
+  "files": ["bin", "src", "data", "README.md", "LICENSE"],
+  "engines": { "node": ">=18" },
+  "scripts": { "start": "node bin/sidegrade.js" },
+  "keywords": ["llm", "coding-agent", "claude-code", "codex", "token", "cost", "usage", "pricing", "intelligence", "artificial-analysis"],
+  "license": "MIT",
+  "repository": { "type": "git", "url": "git+https://github.com/iotexproject/sidegrade.git" },
+  "homepage": "https://github.com/iotexproject/sidegrade#readme"
+}
