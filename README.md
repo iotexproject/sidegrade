@@ -32,30 +32,35 @@ Run it and you get a report built from *your* actual usage. Example:
   sidegrade  ·  same intelligence, less money
   100% local · no account · no telemetry · your prompts & code never leave this machine
 
-  Analyzed 3,180M tokens over the last 30 days across: Claude Code (26d), Codex (21d)
-  Cache-hit rate 94%   ·   your current intelligence AA 53   ·   about $184/day at list price
+  You're using AI at intelligence AA 53, costing about $151/day at list price.
+
+  Based on 3.3B tokens over the last 30 days · 94% cache-hit · Claude Code (26d), Codex (21d)
 
   Intelligence-per-dollar (if you ran all of it on one model)
   model                   AA  vs you     $/day  via
   ────────────────────────────────────────────────────────────────
-  Claude Fable 5.1        57      +4     $64.2  QuickSilver Pro same+ ◆
-  GPT-6 Astra             55      +2      $157  QuickSilver Pro same+
-  Claude Opus 5           54      +1     $62.9  QuickSilver Pro same+ ◆
-  Muse Spark 1.3          53      +0     $17.1  QuickSilver Pro same+ ◆
-  Kimi K3                 50      -3     $40.1  QuickSilver Pro  ~-3
-  GLM 5.3                 49      -4     $21.0  Z.ai             ~-4
-  Gemini 3.8 Flash        47      -6     $10.0  QuickSilver Pro  ~-6 ◆
-  GLM 5.3 Flash           46      -7     $1.13  Z.ai             ~-7 ◆
-  Claude Sonnet 5         45      -8     $31.4  QuickSilver Pro  ▼-8
-  GPT-5.6 Luna            43     -10     $1.29  QuickSilver Pro  ▼-10
-  DeepSeek V4.1 Flash    42~     -11     $2.13  DeepSeek         ▼-11
+  Claude Fable 5.1        57      +4      $201  QuickSilver Pro same+ ◆
+  GPT-6 Astra             55      +2      $326  NEAR AI         same+
+  Claude Opus 5           54      +1      $130  QuickSilver Pro same+ ◆
+  Muse Spark 1.3          53      -0    $29.21  QuickSilver Pro same+ ◆
+  Grok 4.6                51      -2    $81.50  NEAR AI         ~-2
+  Kimi K3                 50      -3    $83.05  QuickSilver Pro ~-3
+  GLM 5.3                 49      -4    $36.93  Z.ai            ~-4
+  Gemini 3.8 Flash        47      -6    $20.76  QuickSilver Pro ~-6 ◆
+  GLM 5.3 Flash           46      -7     $2.03  Z.ai            ~-7 ◆
+  Grok 4.5                45      -8    $51.80  xAI             ▼-8
+  DeepSeek V4.1 Flash    42~     -11     $6.39  NEAR AI         ▼-11
+  Qwen3.8 27B             41     -12    $13.78  AkashML         ▼-12
+  Gemini 3.6 Flash        40     -13    $30.54  Venice          ▼-13
+  GPT-OSS 120B            16     -37     $2.11  Venice          ▼-37
   ◆ = cheapest option at that intelligence level or higher
+  (trimmed — the full run scores 29 models across 12 providers)
 
   Recommendation
   • No intelligence trade-off  (AA ≥ 53)
-      Muse Spark 1.3 (AA 53) via QuickSilver Pro — $17.1/day  (~11× less than list)
+      Muse Spark 1.3 (AA 53) via QuickSilver Pro — $29.21/day  (~5.2× less than list)
   • A small step down  (AA ≥ 45, fine for routine work)
-      GLM 5.3 Flash (AA 46, -7 below you) via Z.ai — $1.13/day  (~163× less)
+      GLM 5.3 Flash (AA 46, -7 below you) via Z.ai — $2.03/day  (~75× less)
 
   A lower AA score means a genuinely less capable model — pick the tier your work needs,
   not just the cheapest row. The big savings above come with a real capability drop.
