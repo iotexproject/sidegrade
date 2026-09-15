@@ -19,13 +19,9 @@ Already inside Claude Code, Codex, Cursor, or any coding agent? Paste this — i
 runs sidegrade and tells you what to do, no terminal needed:
 
 ```text
-Run `npx -y sidegrade --json` and interpret the output for me. sidegrade scores
-AI models by intelligence (Artificial Analysis) and price, and re-prices my own
-local coding-agent usage on each. Tell me, in a few sentences: (1) the
-intelligence level (AA) I'm running now and roughly what it costs per day, (2)
-the cheapest model at that same intelligence, and (3) the cheapest one a small
-step down that's still fine for routine work — with $/day and the savings for
-each. Be honest about the capability trade-off.
+Run `npx -y sidegrade --json` and tell me the intelligence (AA) I'm running and
+what it costs per day, the cheapest model at the same intelligence, and a cheaper
+step-down — with $/day and savings for each.
 ```
 
 ## What you'll see
