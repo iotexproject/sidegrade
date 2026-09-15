@@ -1,0 +1,16 @@
+name: validate
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Validate model registry and provider prices
+        run: node scripts/validate.js
+      - name: Smoke-test the CLI
+        run: node bin/sidegrade.js --help

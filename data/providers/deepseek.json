@@ -1,0 +1,19 @@
+{
+  "provider": "DeepSeek",
+  "url": "https://deepseek.com",
+  "pricing_url": "https://api-docs.deepseek.com/quick_start/pricing",
+  "offers": [
+    {
+      "model": "deepseek-v4-pro",
+      "in": 0.7,
+      "out": 2.1,
+      "cacheRead": 0.1
+    },
+    {
+      "model": "deepseek-v4.1-flash",
+      "in": 0.3,
+      "out": 1.2,
+      "cacheRead": 0.006
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "provider": "Moonshot",
+  "url": "https://moonshot.ai",
+  "pricing_url": "https://platform.moonshot.ai/docs/pricing",
+  "offers": [
+    {
+      "model": "kimi-k3",
+      "in": 3,
+      "out": 15,
+      "cacheRead": 0.3
+    }
+  ]
+}

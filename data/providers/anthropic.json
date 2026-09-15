@@ -1,0 +1,25 @@
+{
+  "provider": "Anthropic",
+  "url": "https://anthropic.com",
+  "pricing_url": "https://www.anthropic.com/pricing",
+  "offers": [
+    {
+      "model": "claude-fable-5-1",
+      "in": 10,
+      "out": 50,
+      "cacheRead": 1
+    },
+    {
+      "model": "claude-opus-5",
+      "in": 15,
+      "out": 75,
+      "cacheRead": 1.5
+    },
+    {
+      "model": "claude-sonnet-5",
+      "in": 3,
+      "out": 15,
+      "cacheRead": 0.3
+    }
+  ]
+}

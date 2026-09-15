@@ -1,0 +1,29 @@
+name: Add / update a provider
+description: Submit your service's models and prices to the comparison catalog.
+title: "[provider] "
+labels: ["provider"]
+body:
+  - type: input
+    id: provider
+    attributes: { label: Provider name, placeholder: "Your Company" }
+    validations: { required: true }
+  - type: input
+    id: url
+    attributes: { label: Homepage URL, placeholder: "https://your-site.example" }
+    validations: { required: true }
+  - type: input
+    id: pricing_url
+    attributes: { label: Public pricing page, placeholder: "https://your-site.example/pricing" }
+    validations: { required: true }
+  - type: textarea
+    id: offers
+    attributes:
+      label: Models and prices (USD per 1M tokens)
+      description: One per line — model, input, output, and optional cache-read price.
+      placeholder: |
+        claude-sonnet-5, in 2.5, out 12, cacheRead 0.25
+        deepseek-v4.1-flash, in 0.28, out 1.1, cacheRead 0.006
+    validations: { required: true }
+  - type: markdown
+    attributes:
+      value: "Prices must match your public pricing page. sidegrade ranks by intelligence and price only and does not favor any provider."

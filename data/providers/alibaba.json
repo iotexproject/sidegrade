@@ -1,0 +1,13 @@
+{
+  "provider": "Alibaba",
+  "url": "https://www.alibabacloud.com",
+  "pricing_url": "https://www.alibabacloud.com/product/modelstudio",
+  "offers": [
+    {
+      "model": "qwen3.8-max",
+      "in": 2,
+      "out": 6,
+      "cacheRead": 0.25
+    }
+  ]
+}

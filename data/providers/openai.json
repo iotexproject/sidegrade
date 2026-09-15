@@ -1,0 +1,25 @@
+{
+  "provider": "OpenAI",
+  "url": "https://openai.com",
+  "pricing_url": "https://openai.com/api/pricing",
+  "offers": [
+    {
+      "model": "gpt-6-astra",
+      "in": 10,
+      "out": 50,
+      "cacheRead": 1
+    },
+    {
+      "model": "gpt-5.6-sol",
+      "in": 5,
+      "out": 30,
+      "cacheRead": 0.5
+    },
+    {
+      "model": "gpt-5.6-luna",
+      "in": 0.1,
+      "out": 0.6,
+      "cacheRead": 0.01
+    }
+  ]
+}

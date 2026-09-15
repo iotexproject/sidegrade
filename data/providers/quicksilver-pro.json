@@ -1,0 +1,103 @@
+{
+  "provider": "QuickSilver Pro",
+  "url": "https://quicksilverpro.io",
+  "pricing_url": "https://quicksilverpro.io/pricing",
+  "offers": [
+    {
+      "model": "claude-fable-5-1",
+      "in": 8,
+      "out": 40,
+      "cacheRead": 0.2
+    },
+    {
+      "model": "gpt-6-astra",
+      "in": 10,
+      "out": 50,
+      "cacheRead": 1
+    },
+    {
+      "model": "claude-opus-5",
+      "in": 4,
+      "out": 20,
+      "cacheRead": 0.4
+    },
+    {
+      "model": "gpt-5.6-sol",
+      "in": 4,
+      "out": 24,
+      "cacheRead": 0.4
+    },
+    {
+      "model": "kimi-k3",
+      "in": 2.55,
+      "out": 12.75,
+      "cacheRead": 0.255
+    },
+    {
+      "model": "glm-5.3",
+      "in": 1.12,
+      "out": 3.52,
+      "cacheRead": 0.208
+    },
+    {
+      "model": "qwen3.8-max",
+      "in": 2,
+      "out": 6,
+      "cacheRead": 0.25
+    },
+    {
+      "model": "gemini-3.8-flash",
+      "in": 0.6375,
+      "out": 3.1875,
+      "cacheRead": 0.06375
+    },
+    {
+      "model": "glm-5.3-flash",
+      "in": 0.06,
+      "out": 0.2,
+      "cacheRead": 0.012
+    },
+    {
+      "model": "claude-sonnet-5",
+      "in": 2,
+      "out": 10,
+      "cacheRead": 0.2
+    },
+    {
+      "model": "gemini-3.7-flash",
+      "in": 0.6375,
+      "out": 3.1875,
+      "cacheRead": 0.06375
+    },
+    {
+      "model": "gpt-5.6-luna",
+      "in": 0.08,
+      "out": 0.48,
+      "cacheRead": 0.008
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "in": 0.7,
+      "out": 2.1,
+      "cacheRead": 0.1
+    },
+    {
+      "model": "deepseek-v4.1-flash",
+      "in": 0.3,
+      "out": 1.2,
+      "cacheRead": 0.006
+    },
+    {
+      "model": "deepseek-v4-flash",
+      "in": 0.112,
+      "out": 0.224,
+      "cacheRead": 0.0144
+    },
+    {
+      "model": "qwen3.8-27b",
+      "in": 0.34,
+      "out": 2.04,
+      "cacheRead": 0.068
+    }
+  ]
+}

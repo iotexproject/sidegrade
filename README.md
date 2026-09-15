@@ -75,22 +75,22 @@ Running it inside a coding-agent session works well: ask your agent to run
 ## Data & sources
 
 - **Intelligence:** Artificial Analysis Intelligence Index
-  (<https://artificialanalysis.ai>), rounded to the nearest integer.
-- **Prices:** each provider's public pricing page, in
-  [`data/models.json`](data/models.json), labeled with the source (`via`).
-  Some of the cheapest offers are via
+  (<https://artificialanalysis.ai>), rounded to the nearest integer, in
+  [`data/models.json`](data/models.json).
+- **Prices:** one file per provider in
+  [`data/providers/`](data/providers), each labeled with a link to its public
+  pricing page. Some of the cheapest offers today are via
   [QuickSilver Pro](https://quicksilverpro.io), an OpenAI-compatible gateway.
-  The catalog is community-maintained — corrections and additional providers
-  are very welcome via pull request.
 
-`sidegrade` ranks purely by intelligence and price. It does not favor any
-provider; a source wins a row only by being the cheapest for that model.
+`sidegrade` ranks strictly by intelligence and price. It does not favor any
+provider — a source wins a row only by being the cheapest for that model.
 
-## Contributing
+## For providers — add your prices in ~2 minutes
 
-Add a model or a provider offer in `data/models.json`, fix a parser in
-`src/parse.js`, or add support for another agent. Keep it dependency-free and
-local-only.
+Run an inference service? Add **one file**,
+`data/providers/<you>.json`, list your models and public prices, and open a PR.
+CI validates it automatically. See [CONTRIBUTING.md](CONTRIBUTING.md) for the
+template, or open an issue with the **"Add / update a provider"** form.
 
 ## License
 

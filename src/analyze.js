@@ -3,8 +3,28 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dir = path.dirname(fileURLToPath(import.meta.url));
-const CATALOG = JSON.parse(fs.readFileSync(path.join(__dir, "..", "data", "models.json"), "utf8"));
-const BY_ID = new Map(CATALOG.models.map((m) => [m.id, m]));
+const DATA = path.join(__dir, "..", "data");
+
+// Canonical model registry (id + label + intelligence score).
+const CATALOG = JSON.parse(fs.readFileSync(path.join(DATA, "models.json"), "utf8"));
+const BY_ID = new Map(CATALOG.models.map((m) => [m.id, { ...m, offers: [] }]));
+
+// Merge every provider's price file (data/providers/*.json). Each provider owns
+// one file and lists the models they sell — this is how new providers get in:
+// add a file, open a PR. Offers referencing an unknown model id are skipped.
+const provDir = path.join(DATA, "providers");
+for (const f of (fs.existsSync(provDir) ? fs.readdirSync(provDir) : [])) {
+  if (!f.endsWith(".json")) continue;
+  let p;
+  try { p = JSON.parse(fs.readFileSync(path.join(provDir, f), "utf8")); } catch { continue; }
+  for (const o of p.offers || []) {
+    const target = BY_ID.get(o.model) || BY_ID.get(CATALOG.aliases[o.model]);
+    if (!target || !(o.in >= 0) || !(o.out >= 0)) continue;
+    target.offers.push({ via: p.provider, in: o.in, out: o.out, cacheRead: o.cacheRead });
+  }
+}
+// Drop models nobody prices, keep catalog ordering by intelligence.
+CATALOG.models = [...BY_ID.values()].filter((m) => m.offers.length);
 
 // Map a raw model string from an agent log to a catalog entry.
 export function normalizeModel(raw) {
